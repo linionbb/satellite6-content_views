@@ -200,6 +200,8 @@ Here is a list of all the default variables for this role, which are also availa
 |`sat_wait_task_delay`    | no       | 30                                | N/A                   |Delay between two task checks|
 |`sat_publish_description`| no       | Automated publishing from Ansible | N/A                   |A message that will appear in the version description |
 |`sat_promote_description`| no       | Automated promotion from Ansible  | N/A                   |A message that will appear in the promotion description|
+|`composite_views_list`| no       | None  | N/A                   |Enter the Composite view names as they appear in Satellite|
+|`content_views_list`| no       | None  | N/A                   |Enter the Content view names as they appear in Satellite|
 
 ## TODO
 
