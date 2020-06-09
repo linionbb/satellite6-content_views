@@ -15,7 +15,7 @@
 #Get list of content views to get id from name
 - name: Get content view list
   uri:
-    url: "{{ sat_url }}/content_views"
+    url: "{{ sat_url }}/content_views?per_page=1000"
     method: GET
     user: "{{ sat_user }}"
     password: "{{ sat_password }}"

@@ -102,6 +102,21 @@ Promote the last version of a content view to environment `satellite_env`.
   roles:
     - satellite6-content_views
 ```
+### Promote a list of content views
+```yaml
+---
+- hosts: localhost
+  connection: local
+  tasks:
+  - name: Publish new version of cv's in content_views_list
+    include_role:
+      name: satellite6-content_views
+    with_items:
+      - "{{ content_views_list }}"
+    loop_control:
+      loop_var: sat_cv_name
+```
+
 ### Remove old content views
 
 While working with Satellite 6, new Content View versions get created pretty often, especially when testing Puppet modules and having to make them available to the clients.
@@ -126,6 +141,42 @@ The number of kept versions can be adjusted using variable `sat_keep_old_cv`.
     sat_keep_old_cv: 5
   roles:
     - satellite6-content_views
+```
+
+### Promote multiple Composite views
+```yaml
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+    - name: Promote ccv's in composite_views_list to sat_env_name
+      include_role:
+        name: satellite6-content_views
+      vars:
+        sat_publish: no
+        sat_promote: yes
+        sat_remove_old_cv: no
+      with_items:
+        - "{{ composite_views_list }}"
+      loop_control:
+        loop_var: sat_cv_name
+```
+
+### Publish multiple Composite Views
+```yaml
+---
+- hosts: localhost
+  connection: local
+  gather_facts: no
+  tasks:
+  - name: Publish new version of ccv's in composite_views_list
+    include_role:
+      name: satellite6-content_views
+    with_items:
+      - "{{ composite_views_list }}"
+    loop_control:
+      loop_var: sat_cv_name
 ```
 
 ## Role Variables

@@ -36,3 +36,9 @@ sat_env_name: ""
 sat_wait_task_retries: 60
 # Delay between two task checks
 sat_wait_task_delay: 30
+
+content_views_list: []
+composite_views_list: []
+
+sat_publish_description: "Automated publishing from Ansible"
+sat_promote_description: "Automated promotion from Ansible"
